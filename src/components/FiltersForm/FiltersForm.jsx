@@ -16,6 +16,16 @@ const INITIAL_VALUES = {
   vehicleType: "",
 };
 
+const LOCATIONS = [
+  "Ukraine, Dnipro",
+  "Ukraine, Kharkiv",
+  "Ukraine, Kyiv",
+  "Ukraine, Lviv",
+  "Ukraine, Odesa",
+  "Ukraine, Poltava",
+  "Ukraine, Sumy",
+];
+
 const EQUIPMENT_OPTIONS = [
   { label: "AC", value: "AC", icon: "icon-ac" },
   { label: "Automatic", value: "automatic", icon: "icon-automatic" },
@@ -70,13 +80,22 @@ const FiltersForm = () => {
             <div className={css.inputWrapper}>
               <Icon name="icon-map" className="iconMap" />
               <Field
-                type="text"
+                as="select"
                 id="location"
                 name="location"
                 placeholder="City"
                 className={css.locationInput}
                 aria-label="Location"
-              />
+              >
+                <option value="" disabled hidden>
+                  City
+                </option>
+                {LOCATIONS.map((location, idx) => (
+                  <option key={idx} value={location}>
+                    {location.split(", ").reverse().join(", ")}
+                  </option>
+                ))}
+              </Field>
             </div>
           </div>
 
