@@ -1,13 +1,14 @@
 .main {
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   color: var(--inputs);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
   background-color: var(--gray-light);
-  animation: backgroundAnimation 30s infinite ease-in-out;
+  animation: backgroundAnimation 60s infinite ease-in-out;
 }
 
 @keyframes backgroundAnimation {

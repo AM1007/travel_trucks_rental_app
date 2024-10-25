@@ -1,20 +1,20 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import DocumentTitle from "@components/DocumentTitle";
-import Container from "@components/Container/Container";
-import FiltersForm from "@components/FiltersForm/FiltersForm";
-import Campers from "@components/Campers/Campers";
-import Loader from "@components/Loader/Loader";
-import ScrollUp from "@components/ScrollUp/ScrollUp";
+import DocumentTitle from '@components/DocumentTitle';
+import Container from '@components/Container/Container';
+import FiltersForm from '@components/FiltersForm/FiltersForm';
+import Campers from '@components/Campers/Campers';
+import Loader from '@components/Loader/Loader';
+import ScrollUp from '@components/ScrollUp/ScrollUp';
 
-import { getCampers } from "@redux/campers/operations";
-import { selectIsLoading } from "@redux/campers/selectors";
-import { changeFilter, initialState } from "@redux/filters/slice";
-import { toastAlert } from "@utils/toastAlert";
-import { scrollToTheTop } from "@utils/utils";
+import { getCampers } from '@redux/campers/operations';
+import { selectIsLoading } from '@redux/campers/selectors';
+import { changeFilter, initialState } from '@redux/filters/slice';
+import { toastAlert } from '@utils/toastAlert';
+import { scrollToTheTop } from '@utils/utils';
 
-import css from "./CatalogPage.module.css";
+import css from './CatalogPage.module.css';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const CatalogPage = () => {
   useEffect(() => {
     dispatch(getCampers())
       .unwrap()
-      .catch((error) => toastAlert.error(error));
+      .catch(error => toastAlert.error(error));
     return () => dispatch(changeFilter(initialState));
   }, [dispatch]);
 

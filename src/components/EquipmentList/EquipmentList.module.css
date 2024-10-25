@@ -2,6 +2,20 @@
   display: flex;
   gap: 4px;
   flex-wrap: wrap;
+  max-height: 104px;
+  overflow-y: auto;
+}
+
+.equipmentList.grab {
+  cursor: grab;
+}
+
+.equipmentList:active {
+  cursor: grabbing;
+}
+
+.equipmentList::-webkit-scrollbar {
+  display: none;
 }
 
 @media screen and (min-width: 1440px) {

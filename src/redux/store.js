@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -8,16 +8,16 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from "redux-persist";
-import storage from "redux-persist/lib/storage";
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-import { campersReducer } from "@redux/campers/slice";
-import { filtersReducer } from "@redux/filters/slice";
-import { favoritesReducer } from "@redux/favorites/slice";
+import { campersReducer } from '@redux/campers/slice';
+import { filtersReducer } from '@redux/filters/slice';
+import { favoritesReducer } from '@redux/favorites/slice';
 
 // Імпорт ред'юсерів:
 const persistConfig = {
-  key: "favoriteCampers",
+  key: 'favoriteCampers',
   storage,
 };
 
@@ -28,7 +28,7 @@ export const store = configureStore({
     filters: filtersReducer,
     favorites: persistReducer(persistConfig, favoritesReducer),
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],

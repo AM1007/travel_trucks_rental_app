@@ -7,7 +7,7 @@ const Icon = ({ name, className = "", active = false, ...props }) => (
     className={clsx(css.icon, css[className], { [css.active]: active })}
     {...props}
   >
-    <use xlinkHref={`/icons.svg#${name}`} />
+    <use xlinkHref={`/sprite.svg#${name}`} />
   </svg>
 );
 

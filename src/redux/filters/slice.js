@@ -1,13 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
-  location: "",
+  location: '',
   equipment: [],
-  vehicleType: "",
+  vehicleType: '',
 };
 
 const filtersSlice = createSlice({
-  name: "filters",
+  name: 'filters',
   initialState,
   reducers: {
     changeFilter(state, { payload }) {

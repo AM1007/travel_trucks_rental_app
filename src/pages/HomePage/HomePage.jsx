@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import DocumentTitle from "@components/DocumentTitle";
-import Container from "@components/Container/Container";
-import Button from "@components/Button/Button";
+import DocumentTitle from '@components/DocumentTitle';
+import Container from '@components/Container/Container';
+import Button from '@components/Button/Button';
 
-import css from "./HomePage.module.css";
+import css from './HomePage.module.css';
 
 const HomePage = () => {
   return (

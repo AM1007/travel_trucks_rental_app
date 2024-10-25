@@ -1,6 +1,6 @@
-import Icon from "@components/Icon/Icon";
+import Icon from '@components/Icon/Icon';
 
-import css from "./EquipmentItem.module.css";
+import css from './EquipmentItem.module.css';
 
 const EquipmentItem = ({ icon, label }) => {
   return (

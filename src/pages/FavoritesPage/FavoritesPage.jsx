@@ -1,14 +1,14 @@
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import DocumentTitle from "@components/DocumentTitle";
-import Container from "@components/Container/Container";
-import CamperList from "@components/CamperList/CamperList";
-import ScrollUp from "@components/ScrollUp/ScrollUp";
-import { selectFavorites } from "@redux/favorites/selectors";
-import { scrollToTheTop } from "@utils/utils";
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import DocumentTitle from '@components/DocumentTitle';
+import Container from '@components/Container/Container';
+import CamperList from '@components/CamperList/CamperList';
+import ScrollUp from '@components/ScrollUp/ScrollUp';
+import { selectFavorites } from '@redux/favorites/selectors';
+import { scrollToTheTop } from '@utils/utils';
 
-import css from "./FavoritesPage.module.css";
+import css from './FavoritesPage.module.css';
 
 const FavoritesPage = () => {
   const favorites = useSelector(selectFavorites);
@@ -16,7 +16,7 @@ const FavoritesPage = () => {
 
   useEffect(() => {
     if (favorites.length === 0) {
-      navigate("/catalog");
+      navigate('/catalog');
     }
   }, [favorites, navigate]);
 

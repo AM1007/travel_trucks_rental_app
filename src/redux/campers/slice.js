@@ -1,9 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getCampers, getCamperById } from "./operations";
-import { changeFilter } from "../filters/slice";
+import { createSlice } from '@reduxjs/toolkit';
+import { getCampers, getCamperById } from './operations';
+import { changeFilter } from '../filters/slice';
 
 // Обробка стану очікування
-const handlePending = (state) => {
+const handlePending = state => {
   state.loading = true;
 };
 
@@ -14,7 +14,7 @@ const handleRejected = (state, action) => {
 };
 
 const campersSlice = createSlice({
-  name: "campers",
+  name: 'campers',
   initialState: {
     page: 1,
     items: [],
@@ -27,7 +27,7 @@ const campersSlice = createSlice({
       state.page = payload;
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
       .addCase(getCampers.pending, handlePending)
       .addCase(getCampers.fulfilled, (state, { payload: { items } }) => {
@@ -44,7 +44,7 @@ const campersSlice = createSlice({
         state.camper = payload;
       })
       .addCase(getCamperById.rejected, handleRejected)
-      .addCase(changeFilter, (state) => {
+      .addCase(changeFilter, state => {
         state.page = 1;
       });
   },

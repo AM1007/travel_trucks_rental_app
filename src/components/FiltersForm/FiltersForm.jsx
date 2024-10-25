@@ -31,7 +31,7 @@ const EQUIPMENT_OPTIONS = [
   { label: "Automatic", value: "automatic", icon: "icon-automatic" },
   { label: "Kitchen", value: "kitchen", icon: "icon-kitchen" },
   { label: "TV", value: "TV", icon: "icon-tv" },
-  { label: "Bathroom", value: "bathroom", icon: "icon-bathroom" },
+  { label: "Bathroom", value: "bathroom", icon: "icon-shower" },
 ];
 
 const VEHICLE_TYPE_OPTIONS = [
@@ -159,6 +159,7 @@ const FiltersForm = () => {
 
             {isSubmitted && areFiltersApplied(values) && (
               <Button
+                variant="outlined"
                 type="button"
                 onClick={() => handleResetFiltersAndCampers(resetForm)}
                 aria-label="Reset Filters and Campers"

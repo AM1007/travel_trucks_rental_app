@@ -1,9 +1,9 @@
-import clsx from "clsx";
-import css from "./Button.module.css";
+import clsx from 'clsx';
+import css from './Button.module.css';
 
 const Button = ({
-  type = "button",
-  variant = "contained",
+  type = 'button',
+  variant = 'contained',
   main = false,
   selfcenter = false,
   children,

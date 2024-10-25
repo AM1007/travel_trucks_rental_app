@@ -1,11 +1,15 @@
 export const getFilteredEquipment = ({
+  AC,
   transmission,
   engine,
-  AC,
   bathroom,
   kitchen,
   radio,
   TV,
+  gas,
+  microwave,
+  refrigerator,
+  water,
 }) => {
   return [
     {
@@ -13,12 +17,16 @@ export const getFilteredEquipment = ({
       label: "Automatic",
       available: transmission === "automatic",
     },
+    { icon: "icon-ac", label: "AC", available: AC },
     { icon: "icon-fuel", label: engine, available: engine },
     { icon: "icon-kitchen", label: "Kitchen", available: kitchen },
-    { icon: "icon-ac", label: "AC", available: AC },
-    { icon: "icon-bathroom", label: "Bathroom", available: bathroom },
+    { icon: "icon-shower", label: "Bathroom", available: bathroom },
     { icon: "icon-radio", label: "Radio", available: radio },
     { icon: "icon-tv", label: "TV", available: TV },
+    { icon: "icon-gas", label: "Gas", available: gas },
+    { icon: "icon-microwave", label: "Microwave", available: microwave },
+    { icon: "icon-fridge", label: "Refrigerator", available: refrigerator },
+    { icon: "icon-water", label: "Water", available: water },
   ].filter((item) => item.available);
 };
 
