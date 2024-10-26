@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 import CamperHeader from "@components/CamperHeader/CamperHeader";
 import EquipmentList from "@components/EquipmentList/EquipmentList";
+import CamperImage from "../CamperImage/CamperImage";
 import Button from "@components/Button/Button";
 
 import { getFilteredEquipment } from "@utils/utils";
@@ -15,14 +16,14 @@ const Camper = ({ camper, first }) => {
 
   return (
     <li className={css.camperCard}>
-      <img src={gallery[0].thumb} alt={name} className={css.camperImage} />
+      <CamperImage name={name} gallery={gallery} />
 
       <div className={css.camperDetails}>
         <CamperHeader camper={camper} first={first} />
 
         <p className={css.camperDescription}>{description}</p>
 
-        <EquipmentList equipment={equipment} />
+        <EquipmentList equipment={equipment} isInCamperCard={true} />
 
         <Button aria-label="Show More">
           <Link

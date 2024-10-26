@@ -1,4 +1,5 @@
 .camperCard {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -30,7 +31,7 @@
   }
 }
 
-.camperImage {
+/* .camperImage {
   width: 100%;
   height: 150px;
   border-radius: 10px;
@@ -61,7 +62,7 @@
     max-width: 292px;
     height: auto;
   }
-}
+} */
 
 .camperDetails {
   width: 100%;

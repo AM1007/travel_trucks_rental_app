@@ -8,7 +8,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-color: var(--gray-light);
-  animation: backgroundAnimation 60s infinite ease-in-out;
+  animation: backgroundAnimation 40s infinite ease-in-out;
 }
 
 @keyframes backgroundAnimation {

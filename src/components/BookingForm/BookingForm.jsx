@@ -2,7 +2,7 @@ import * as Yup from "yup";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import DatePicker from "react-datepicker";
 import { useState } from "react";
-
+import enGB from "date-fns/locale/en-GB";
 import Button from "@components/Button/Button";
 import { toastAlert } from "@utils/toastAlert";
 
@@ -14,7 +14,7 @@ import "./CustomDatePicker.css";
 const INITIAL_FORM_DATA = {
   name: "",
   email: "",
-  date: null,
+  dateRange: { start: null, end: null },
   comment: "",
 };
 
@@ -24,21 +24,27 @@ const FormSchema = Yup.object().shape({
     .trim()
     .required("Name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
-  date: Yup.date().required("Booking date is required"),
+  dateRange: Yup.object()
+    .shape({
+      start: Yup.date().required("Start date is required"),
+      end: Yup.date().required("End date is required"),
+    })
+    .required("Booking date range is required"),
   comment: Yup.string().trim(),
 });
 
 const BookingForm = () => {
   const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   const today = new Date();
   const tomorrow = new Date(today);
   tomorrow.setDate(tomorrow.getDate() + 1);
 
   const handleSubmit = (values, { resetForm }) => {
     toastAlert.success(`Dear ${values.name}, your booking is confirmed!`);
-
     resetForm();
     setStartDate(null);
+    setEndDate(null);
   };
 
   return (
@@ -71,19 +77,32 @@ const BookingForm = () => {
           <div className={css.field}>
             <DatePicker
               selected={startDate}
-              closeOnScroll={true}
-              onChange={(date) => {
-                setStartDate(date);
-                setFieldValue("date", date);
+              onChange={(dates) => {
+                const [start, end] = dates;
+                setStartDate(start);
+                setEndDate(end);
+                setFieldValue("dateRange", { start, end });
               }}
-              startDate={today}
+              startDate={startDate}
+              endDate={endDate}
+              selectsRange
+              closeOnScroll={true}
               minDate={tomorrow}
+              locale={enGB}
               dateFormat="MMMM d, yyyy"
-              highlightDates={[today]}
               placeholderText="Booking date*"
               className={css.input}
             />
-            <ErrorMessage className={css.error} name="date" component="span" />
+            <ErrorMessage
+              className={css.error}
+              name="dateRange.start"
+              component="span"
+            />
+            <ErrorMessage
+              className={css.error}
+              name="dateRange.end"
+              component="span"
+            />
           </div>
 
           <div className={css.field}>
