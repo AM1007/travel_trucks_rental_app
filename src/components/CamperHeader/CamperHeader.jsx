@@ -1,30 +1,30 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
-import clsx from 'clsx';
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
+import clsx from "clsx";
 
-import Icon from '@components/Icon/Icon';
+import Icon from "@components/Icon/Icon";
 
-import { selectIsFavorite } from '@redux/favorites/selectors';
-import { addFavorite, removeFavorite } from '@redux/favorites/slice';
-import { toastAlert } from '@utils/toastAlert';
+import { selectIsFavorite } from "@redux/favorites/selectors";
+import { addFavorite, removeFavorite } from "@redux/favorites/slice";
+import { toastAlert } from "@utils/toastAlert";
 
-import css from './CamperHeader.module.css';
+import css from "./CamperHeader.module.css";
 
 const CamperHeader = ({ camper, first }) => {
   const { id, name, price, rating, location, reviews = [] } = camper;
   const dispatch = useDispatch();
-  const isFavorite = useSelector(state => selectIsFavorite(state, id));
+  const isFavorite = useSelector((state) => selectIsFavorite(state, id));
   const locationPath = useLocation();
 
-  const isPathDetails = locationPath.pathname.includes('/catalog/');
+  const isPathDetails = locationPath.pathname.includes("/catalog/");
 
   const handleClick = () => {
     if (isFavorite) {
       dispatch(removeFavorite(id));
-      toastAlert.info('Camper removed from favorites');
+      toastAlert.info("Camper removed from favorites");
     } else {
       dispatch(addFavorite(camper));
-      toastAlert.success('Camper added to favorites');
+      toastAlert.success("Camper added to favorites");
     }
   };
 
@@ -55,7 +55,7 @@ const CamperHeader = ({ camper, first }) => {
         </span>
         <span className={css.location}>
           <Icon name="icon-map" className="smallest" />
-          {location.split(', ').reverse().join(', ')}
+          {location.split(", ").reverse().join(", ")}
         </span>
       </p>
 

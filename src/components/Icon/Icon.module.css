@@ -36,8 +36,9 @@
 }
 
 .iconHeart:focus,
-.active {
+.iconHeart.active {
   fill: var(--button);
+  outline: none;
 }
 
 @media (hover: hover) {
@@ -59,12 +60,6 @@
 .iconMap:focus,
 .active {
   fill: var(--main);
-}
-
-@media (hover: hover) {
-  .iconHeart:hover {
-    fill: var(--main);
-  }
 }
 
 @media screen and (min-width: 768px) {
