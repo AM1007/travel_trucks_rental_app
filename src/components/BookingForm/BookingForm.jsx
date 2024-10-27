@@ -113,7 +113,7 @@ const BookingForm = () => {
               placeholder="Comment"
             />
           </div>
-          <Button selfcenter type="submit">
+          <Button selfcenter margin type="submit">
             Send
           </Button>
         </Form>

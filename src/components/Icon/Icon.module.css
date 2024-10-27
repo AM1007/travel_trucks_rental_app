@@ -52,6 +52,19 @@
   position: absolute;
   top: 14px;
   left: 16px;
+  fill: var(--text);
+}
+
+.iconMap:hover,
+.iconMap:focus,
+.active {
+  fill: var(--main);
+}
+
+@media (hover: hover) {
+  .iconHeart:hover {
+    fill: var(--main);
+  }
 }
 
 @media screen and (min-width: 768px) {

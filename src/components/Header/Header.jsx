@@ -1,13 +1,14 @@
-import { Link, NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { selectFavorites } from '@redux/favorites/selectors';
-import Container from '@components/Container/Container';
-import logo from '@assets/logo.svg';
-import clsx from 'clsx';
-import css from './Header.module.css';
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectFavorites } from "@redux/favorites/selectors";
+import Container from "@components/Container/Container";
+import logo from "@assets/logo.svg";
+import clsx from "clsx";
+import css from "./Header.module.css";
 
 const Header = () => {
   const favorites = useSelector(selectFavorites);
+  const location = useLocation();
 
   return (
     <header className={css.header}>
@@ -31,9 +32,13 @@ const Header = () => {
             <li className={css.item}>
               <NavLink
                 className={({ isActive }) =>
-                  clsx(css.link, isActive && css.active)
+                  clsx(
+                    css.link,
+                    isActive && location.pathname !== "/features" && css.active
+                  )
                 }
                 to="/catalog"
+                end
               >
                 Catalog
               </NavLink>

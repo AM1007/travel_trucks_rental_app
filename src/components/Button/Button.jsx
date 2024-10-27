@@ -1,11 +1,12 @@
-import clsx from 'clsx';
-import css from './Button.module.css';
+import clsx from "clsx";
+import css from "./Button.module.css";
 
 const Button = ({
-  type = 'button',
-  variant = 'contained',
+  type = "button",
+  variant = "contained",
   main = false,
   selfcenter = false,
+  margin,
   children,
   ...otherProps
 }) => {
@@ -15,6 +16,7 @@ const Button = ({
         [css[variant]]: variant,
         [css.main]: main,
         [css.center]: selfcenter,
+        [css.margin]: margin,
       })}
       type={type}
       {...otherProps}
