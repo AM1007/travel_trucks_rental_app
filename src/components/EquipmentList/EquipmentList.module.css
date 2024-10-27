@@ -18,6 +18,23 @@
   display: none;
 }
 
+.equipmentList:hover::-webkit-scrollbar {
+  display: block;
+  width: 4px;
+}
+
+/* Стилизация ползунка */
+.equipmentList:hover::-webkit-scrollbar-thumb {
+  background: var(--gray-light);
+  border-radius: 4px;
+}
+
+/* Стилизация дорожки */
+.equipmentList:hover::-webkit-scrollbar-track {
+  background: var(--inputs);
+  border-radius: 4px;
+}
+
 @media screen and (min-width: 1440px) {
   .equipmentList {
     gap: 8px;
